@@ -1,24 +1,21 @@
 package ru.netology.rest;
 
-import io.restassured.http.ContentType;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-class MobileBankApiTestV3 {
+class PostmanTest1 {
     @Test
-    void shouldReturnDemoAccounts() {
+    void ShouldReturnData() {
         given()
                 .baseUri("https://postman-echo.com")
                 .body("some data")
                 .when()
                 .post("/post")
                 .then()
-                .statusCode(201)
-                .contentType(ContentType.JSON)
-                .body("data", equalTo("some data"))
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
         ;
     }
 }

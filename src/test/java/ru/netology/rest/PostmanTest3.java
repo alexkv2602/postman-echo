@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
-class MobileBankApiTestV2 {
+class PostmanTest3 {
     @Test
-    void shouldReturnDemoAccounts() {
+    void ShouldReturnData() {
 
         given()
                 .baseUri("https://postman-echo.com")
